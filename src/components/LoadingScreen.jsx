@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import logoImg from '../assets/logo.png'
 
 export default function LoadingScreen({ onDone }) {
   const [progress, setProgress] = useState(0)
@@ -37,9 +38,9 @@ export default function LoadingScreen({ onDone }) {
           transition={{ duration: 0.6 }}
         >
           <img
-            src="/logo.png"
+            src={logoImg}
             alt="Rishik Kanduri Logo"
-            className="h-16 md:h-20 w-auto object-contain dark:invert"
+            className="h-20 w-20 object-contain rounded-full dark:invert"
           />
           <div className="text-center">
             <h2 className="font-display font-bold text-lg md:text-xl tracking-wide text-foreground leading-none">RISHIK KANDURI</h2>

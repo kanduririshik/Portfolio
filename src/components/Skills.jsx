@@ -1,36 +1,68 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Terminal, Code, Database, FileCode, Sliders, Cpu, Layers, GitBranch, Monitor, Globe, Target, Palette } from 'lucide-react'
+import {
+  Brain,
+  Sparkles,
+  Terminal,
+  Code2,
+  Camera,
+  Film,
+  TrendingUp
+} from 'lucide-react'
 
-const skillGroups = [
+const mainSkills = [
   {
-    title: 'Programming',
-    skills: [
-      { name: 'Python', level: 85, icon: <Terminal className="w-4 h-4 text-primary" /> },
-      { name: 'JavaScript', level: 75, icon: <FileCode className="w-4 h-4 text-primary" /> },
-      { name: 'HTML', level: 92, icon: <Code className="w-4 h-4 text-primary" /> },
-      { name: 'CSS', level: 88, icon: <Sliders className="w-4 h-4 text-primary" /> },
-      { name: 'SQL', level: 65, icon: <Database className="w-4 h-4 text-primary" /> },
-    ]
+    title: 'AI & Machine Learning',
+    description: 'AI/ML concepts & intelligent solutions',
+    icon: Brain,
+    gradient: 'from-blue-500/20 via-indigo-500/10 to-transparent',
+    accentColor: 'text-blue-500 dark:text-blue-400',
+    iconBg: 'bg-blue-500/10'
   },
   {
-    title: 'Technologies',
-    skills: [
-      { name: 'ReactJS', level: 72, icon: <Cpu className="w-4 h-4 text-primary" /> },
-      { name: 'Tailwind CSS', level: 80, icon: <Layers className="w-4 h-4 text-primary" /> },
-      { name: 'GitHub', level: 82, icon: <GitBranch className="w-4 h-4 text-primary" /> },
-      { name: 'Responsive Design', level: 88, icon: <Monitor className="w-4 h-4 text-primary" /> },
-      { name: 'REST APIs', level: 62, icon: <Globe className="w-4 h-4 text-primary" /> },
-    ]
+    title: 'Generative AI',
+    description: 'LLMs, AI tools & creative applications',
+    icon: Sparkles,
+    gradient: 'from-purple-500/20 via-pink-500/10 to-transparent',
+    accentColor: 'text-purple-500 dark:text-purple-400',
+    iconBg: 'bg-purple-500/10'
   },
   {
-    title: 'Concepts',
-    skills: [
-      { name: 'Frontend Dev', level: 82, icon: <Code className="w-4 h-4 text-primary" /> },
-      { name: 'Problem Solving', level: 78, icon: <Target className="w-4 h-4 text-primary" /> },
-      { name: 'UI/UX Design', level: 70, icon: <Palette className="w-4 h-4 text-primary" /> },
-      { name: 'Data Structures', level: 65, icon: <Database className="w-4 h-4 text-primary" /> },
-    ]
+    title: 'Prompt Engineering',
+    description: 'Advanced prompting & AI workflows',
+    icon: Terminal,
+    gradient: 'from-emerald-500/20 via-teal-500/10 to-transparent',
+    accentColor: 'text-emerald-500 dark:text-emerald-400',
+    iconBg: 'bg-emerald-500/10'
+  },
+  {
+    title: 'Web Development',
+    description: 'Modern & responsive web applications',
+    icon: Code2,
+    gradient: 'from-cyan-500/20 via-sky-500/10 to-transparent',
+    accentColor: 'text-cyan-500 dark:text-cyan-400',
+    iconBg: 'bg-cyan-500/10'
+  }
+]
+
+const specialSkills = [
+  {
+    name: 'PHOTOGRAPHY',
+    icon: Camera,
+    color: 'text-amber-500 dark:text-amber-400',
+    bg: 'bg-amber-500/10 border-amber-500/20'
+  },
+  {
+    name: 'VIDEO & PHOTO EDITING',
+    icon: Film,
+    color: 'text-rose-500 dark:text-rose-400',
+    bg: 'bg-rose-500/10 border-rose-500/20'
+  },
+  {
+    name: 'BUSINESS ENTHUSIAST',
+    icon: TrendingUp,
+    color: 'text-emerald-500 dark:text-emerald-400',
+    bg: 'bg-emerald-500/10 border-emerald-500/20'
   }
 ]
 
@@ -44,63 +76,84 @@ export default function Skills() {
             My Abilities
           </span>
           <h2 className="font-display font-bold text-3xl md:text-4xl mt-2 text-foreground">
-            Skills & Technologies
+            Skills & Knowledge
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto mt-3" />
         </div>
 
-        {/* Groups Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {skillGroups.map((group, groupIdx) => (
-            <div key={groupIdx} className="flex flex-col text-left">
-              <h3 className="font-display font-semibold text-sm text-primary uppercase tracking-wider mb-5">
-                {group.title}
-              </h3>
-              <div className="space-y-4">
-                {group.skills.map((skill, index) => (
-                  <motion.div
-                    key={index}
-                    className="glass rounded-xl p-4 shadow-sm flex flex-col space-y-3 cursor-default"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-80px' }}
-                    transition={{ duration: 0.4, delay: index * 0.05 + groupIdx * 0.1, ease: 'easeOut' }}
-                    whileHover={{ scale: 1.02, y: -2 }}
-                  >
-                    {/* Header Row */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                          {skill.icon}
-                        </div>
-                        <span className="text-sm font-medium text-foreground">
-                          {skill.name}
-                        </span>
-                      </div>
-                      <span className="text-xs font-semibold text-primary">
-                        {skill.level}%
-                      </span>
-                    </div>
+        {/* 4 Main Skill Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {mainSkills.map((skill, index) => {
+            const Icon = skill.icon
+            return (
+              <motion.div
+                key={index}
+                className="group glass rounded-2xl p-6 shadow-sm flex flex-col justify-between cursor-default border border-border transition-all duration-300 relative overflow-hidden text-left"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' }}
+                whileHover={{ y: -6, scale: 1.02 }}
+              >
+                {/* Subtle top-corner gradient accent */}
+                <div className={`absolute top-0 right-0 w-28 h-28 bg-gradient-to-br ${skill.gradient} rounded-full blur-2xl opacity-60 pointer-events-none group-hover:opacity-100 transition-opacity`} />
 
-                    {/* Progress Track */}
-                    <div className="h-1.5 w-full bg-secondary rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full bg-gradient-to-r from-blue-600 to-blue-400"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 1.1,
-                          delay: 0.4 + (index * 0.07),
-                          ease: 'easeOut'
-                        }}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          ))}
+                <div>
+                  {/* Icon Box */}
+                  <div className={`w-12 h-12 rounded-xl ${skill.iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 border border-border/50`}>
+                    <Icon className={`w-6 h-6 ${skill.accentColor}`} />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-display font-bold text-lg text-foreground group-hover:text-primary transition-colors">
+                    {skill.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground mt-2.5 leading-relaxed">
+                    {skill.description}
+                  </p>
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+
+        {/* Special Skills Section */}
+        <div className="mt-16 pt-8 border-t border-border/60">
+          <div className="text-center mb-8">
+            <h3 className="font-display font-bold text-xl md:text-2xl text-foreground">
+              Special Skills
+            </h3>
+            <p className="text-xs text-muted-foreground mt-1 tracking-wide">
+              Creative & strategic multidisciplinary interests
+            </p>
+          </div>
+
+          {/* 3 Horizontal Special Skill Badges/Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {specialSkills.map((special, idx) => {
+              const Icon = special.icon
+              return (
+                <motion.div
+                  key={idx}
+                  className="glass rounded-xl px-5 py-4 border border-border/80 flex items-center justify-center gap-3.5 text-center transition-all duration-300 hover:border-primary/50 hover:bg-primary/5 cursor-default group shadow-sm"
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-60px' }}
+                  transition={{ duration: 0.4, delay: 0.2 + idx * 0.08, ease: 'easeOut' }}
+                  whileHover={{ y: -3, scale: 1.02 }}
+                >
+                  <div className={`w-9 h-9 rounded-lg ${special.bg} border flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className={`w-4 h-4 ${special.color}`} />
+                  </div>
+                  <span className="font-display font-bold text-xs md:text-sm tracking-wider uppercase text-foreground group-hover:text-primary transition-colors">
+                    {special.name}
+                  </span>
+                </motion.div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

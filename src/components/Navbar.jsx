@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
+import logoImg from '../assets/logo.png'
 
 const navItems = [
   { label: 'Home', id: 'hero' },
@@ -71,9 +72,9 @@ export default function Navbar({ isDarkMode, toggleDarkMode }) {
         aria-label="Rishik Kanduri Home"
       >
         <motion.img
-          src="/logo.png"
+          src={logoImg}
           alt="RK Logo"
-          className="h-8 w-auto object-contain dark:invert"
+          className="h-9 w-9 object-contain rounded-full dark:invert"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         />

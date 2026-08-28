@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, Phone, Heart } from 'lucide-react'
+import logoImg from '../assets/logo.png'
 
 export default function Footer() {
   const scrollSection = (id) => {
@@ -30,9 +31,9 @@ export default function Footer() {
               aria-label="Scroll to top"
             >
               <motion.img
-                src="/logo.png"
+                src={logoImg}
                 alt="RK Logo"
-                className="h-7 w-auto object-contain dark:invert"
+                className="h-8 w-8 object-contain rounded-full dark:invert"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               />

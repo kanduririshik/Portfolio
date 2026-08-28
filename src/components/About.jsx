@@ -71,10 +71,10 @@ export default function About() {
           viewport={{ once: true, margin: '-80px' }}
         >
           <motion.p className="text-base text-muted-foreground leading-relaxed" variants={itemVariants}>
-            Hello! I am <span className="text-primary font-semibold">Kanduri Rishik</span>, a student at Aurora Deemed University pursuing a Bachelor of Technology in Computer Science. I enjoy transforming logical structures into functional software and creating visually engaging, highly interactive user experiences.
+            Hello! I am <span className="text-primary font-semibold">Kanduri Rishik</span>, a passionate B.Tech Computer Science student pursuing my degree through the <span className="text-primary font-semibold">NxtWave Innovations of Advanced Technologies</span> × <span className="text-primary font-semibold">Aurora Deemed to be University</span> program. I am passionate about technology, <span className="text-primary font-semibold">Artificial Intelligence</span>, <span className="text-primary font-semibold">Generative AI</span>, and building innovative digital solutions.
           </motion.p>
           <motion.p className="text-base text-muted-foreground leading-relaxed" variants={itemVariants}>
-            My journey began with automation scripts in <span className="text-primary font-semibold">Python</span> and evolved into designing modern frontend layouts with <span className="text-primary font-semibold">ReactJS</span> and <span className="text-primary font-semibold">Tailwind CSS</span>. I focus on writing maintainable, clean code and expanding my knowledge of algorithmic problem solving.
+            My journey in technology began with programming and automation, and I have continued expanding my knowledge across AI, <span className="text-primary font-semibold">Machine Learning</span>, <span className="text-primary font-semibold">Prompt Engineering</span>, and <span className="text-primary font-semibold">Web Development</span>. I enjoy experimenting with emerging technologies, transforming ideas into practical solutions, and continuously improving my technical and creative skills.
           </motion.p>
 
           <motion.div className="border-t border-border pt-6 mt-2" variants={itemVariants}>
