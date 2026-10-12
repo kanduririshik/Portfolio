@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import {
   Sparkles,
   HeartPulse,
+  Building2,
   Compass,
   Share2,
   Activity,
@@ -49,6 +50,38 @@ const projects = [
     ]
   },
   {
+    title: 'Glory Simon Interiors CRM',
+    tag: 'CRM & Client Hub',
+    icon: Building2,
+    tech: ['React', 'Tailwind CSS', 'CRM Pipeline', 'Full Stack'],
+    link: 'https://glory-simon.vercel.app/',
+    gradient: 'from-amber-500/25 via-orange-500/15 to-amber-900/20',
+    iconColor: 'text-amber-500 dark:text-amber-400',
+    badgeBg: 'bg-amber-500/10 border-amber-500/30',
+    accentColor: 'bg-amber-500',
+    description: [
+      'Luxury interior design CRM and client operations platform.',
+      'Manages leads, site visit logs, quotations, and team workflows.',
+      'Features high-end luxury aesthetics with responsive dashboards.'
+    ]
+  },
+  {
+    title: 'NAB Connect',
+    tag: 'Biotech & Logistics',
+    icon: Activity,
+    tech: ['React', 'Leaflet Maps', 'Geospatial Tracking', 'Full Stack'],
+    link: 'https://nab-connect.vercel.app',
+    gradient: 'from-teal-500/25 via-emerald-500/15 to-teal-900/20',
+    iconColor: 'text-teal-500 dark:text-teal-400',
+    badgeBg: 'bg-teal-500/10 border-teal-500/30',
+    accentColor: 'bg-teal-500',
+    description: [
+      'Full-stack management portal for New Age Biologics (NAB).',
+      'Integrates interactive Leaflet maps for field operations and logistics.',
+      'Real-time supply tracking, distribution metrics, and modern analytics.'
+    ]
+  },
+  {
     title: 'TravelSync',
     tag: 'Trip Planning',
     icon: Compass,
@@ -83,7 +116,7 @@ const projects = [
   {
     title: 'Hope Hospitals',
     tag: 'Healthcare Web',
-    icon: Activity,
+    icon: HeartPulse,
     tech: ['HTML', 'CSS', 'JavaScript'],
     link: 'https://hospitalhope.niat.tech',
     gradient: 'from-cyan-500/25 via-blue-500/15 to-cyan-900/20',
@@ -160,7 +193,7 @@ export default function Projects() {
         <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto mt-3" />
       </div>
 
-      {/* Grid - 8 Projects in responsive layout */}
+      {/* Grid - 10 Projects in responsive layout */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, idx) => {
           const isExternal = !!project.link
