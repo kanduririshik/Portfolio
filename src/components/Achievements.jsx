@@ -37,10 +37,10 @@ function Counter({ value, duration = 1400 }) {
 const stats = [
   {
     icon: <Rocket className="w-6 h-6" />,
-    value: '2',
-    suffix: '',
-    label: 'Flagship Projects',
-    desc: 'StartupLens AI & LivIQ',
+    value: '8',
+    suffix: '+',
+    label: 'Projects Built',
+    desc: 'Full-stack, AI & Python apps',
     colorClass: 'bg-blue-500/10 text-blue-600 dark:text-blue-400'
   },
   {

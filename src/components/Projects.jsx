@@ -3,6 +3,13 @@ import { motion } from 'framer-motion'
 import {
   Sparkles,
   HeartPulse,
+  Compass,
+  Share2,
+  Activity,
+  Boxes,
+  Film,
+  Layers,
+  Terminal,
   ExternalLink,
   Github
 } from 'lucide-react'
@@ -10,7 +17,7 @@ import {
 const projects = [
   {
     title: 'StartupLens AI',
-    tag: 'AI Opportunity Intelligence',
+    tag: 'AI Intelligence',
     icon: Sparkles,
     tech: ['Next.js', 'React', 'FastAPI', 'Python', 'Google Gemini', 'Tailwind CSS'],
     link: 'https://frontend-sigma-nine-1sehyiki3f.vercel.app/',
@@ -27,7 +34,7 @@ const projects = [
   },
   {
     title: 'LivIQ Offline App',
-    tag: 'Offline Health Intelligence',
+    tag: 'Offline Health',
     icon: HeartPulse,
     tech: ['React', 'JavaScript', 'Tailwind CSS', 'Offline-First', 'PWA'],
     link: 'https://liviq-offline-app.vercel.app/',
@@ -38,7 +45,103 @@ const projects = [
     description: [
       'Offline-focused health intelligence application providing three layers of personal protection.',
       'Provides emergency response assistance, rapid hospital discovery, and medicine safety verification.',
-      'Designed for everyday wellness monitoring with a responsive, offline-first interface across desktop and mobile.'
+      'Designed for everyday wellness monitoring with a responsive, offline-first interface.'
+    ]
+  },
+  {
+    title: 'TravelSync',
+    tag: 'Trip Planning',
+    icon: Compass,
+    tech: ['ReactJS', 'JavaScript', 'Tailwind CSS', 'Responsive Web Design'],
+    link: 'https://travelsync-navy.vercel.app/',
+    gradient: 'from-sky-500/25 via-teal-500/15 to-sky-900/20',
+    iconColor: 'text-sky-500 dark:text-sky-400',
+    badgeBg: 'bg-sky-500/10 border-sky-500/30',
+    accentColor: 'bg-sky-500',
+    description: [
+      'Built a travel planning and booking platform using ReactJS, JavaScript, and CSS.',
+      'Implemented destination exploration, trip management, and booking features.',
+      'Designed a responsive and user-friendly interface optimized for desktop and mobile devices.'
+    ]
+  },
+  {
+    title: 'SynVoyanix',
+    tag: 'Real-Time Sync',
+    icon: Share2,
+    tech: ['ReactJS', 'JavaScript', 'Tailwind CSS'],
+    link: 'https://synvoyanix4.base44.app',
+    gradient: 'from-blue-500/25 via-indigo-500/15 to-blue-900/20',
+    iconColor: 'text-blue-500 dark:text-blue-400',
+    badgeBg: 'bg-blue-500/10 border-blue-500/30',
+    accentColor: 'bg-blue-500',
+    description: [
+      'React collaborative web platform for real-time file sharing and interactive board syncing.',
+      'Engineered dynamic workspace synchronization and active collaborative boards.',
+      'Built modular, responsive React components for desktop and mobile devices.'
+    ]
+  },
+  {
+    title: 'Hope Hospitals',
+    tag: 'Healthcare Web',
+    icon: Activity,
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    link: 'https://hospitalhope.niat.tech',
+    gradient: 'from-cyan-500/25 via-blue-500/15 to-cyan-900/20',
+    iconColor: 'text-cyan-500 dark:text-cyan-400',
+    badgeBg: 'bg-cyan-500/10 border-cyan-500/30',
+    accentColor: 'bg-cyan-500',
+    description: [
+      'Healthcare web application featuring online doctor consultations and appointment booking.',
+      'Includes interactive patient portal, specialized doctor profiles, and service directories.',
+      'Fully responsive layout ensuring seamless medical access across devices.'
+    ]
+  },
+  {
+    title: 'FlexHarbour',
+    tag: 'Logistics Portal',
+    icon: Boxes,
+    tech: ['HTML', 'CSS', 'Responsive Web Design'],
+    link: 'https://flexharbour.niat.tech',
+    gradient: 'from-purple-500/25 via-pink-500/15 to-purple-900/20',
+    iconColor: 'text-purple-500 dark:text-purple-400',
+    badgeBg: 'bg-purple-500/10 border-purple-500/30',
+    accentColor: 'bg-purple-500',
+    description: [
+      'Modern logistics platform landing page highlighting shipping routes and transit operations.',
+      'Built dynamic interactive price estimation calculator and user testimonial carousels.',
+      'Focused on high-performance animations and clear call-to-action flows.'
+    ]
+  },
+  {
+    title: 'Cine Verse',
+    tag: 'Python CLI',
+    icon: Film,
+    tech: ['Python', 'CLI', 'Algorithms'],
+    link: null,
+    gradient: 'from-amber-500/25 via-orange-500/15 to-amber-900/20',
+    iconColor: 'text-orange-500 dark:text-orange-400',
+    badgeBg: 'bg-orange-500/10 border-orange-500/30',
+    accentColor: 'bg-amber-500',
+    description: [
+      'CLI Python terminal application for movie recommendations and database search.',
+      'Queries cinema genre databases and tracks viewed movies with personalized rating metrics.',
+      'Structured with clean object-oriented architecture and efficient search algorithms.'
+    ]
+  },
+  {
+    title: 'Tower of Hanoi',
+    tag: 'Algorithm Puzzle',
+    icon: Layers,
+    tech: ['Python', 'Data Structures', 'Recursion'],
+    link: null,
+    gradient: 'from-green-500/25 via-emerald-500/15 to-green-900/20',
+    iconColor: 'text-emerald-500 dark:text-emerald-400',
+    badgeBg: 'bg-emerald-500/10 border-emerald-500/30',
+    accentColor: 'bg-green-500',
+    description: [
+      'Interactive puzzle solver executing recursive mathematical algorithms step-by-step.',
+      'Demonstrates optimal disc transfer sequence across peg columns with visual representations.',
+      'Includes move counter, complexity analysis, and terminal visualization.'
     ]
   }
 ]
@@ -49,7 +152,7 @@ export default function Projects() {
       {/* Section Header */}
       <div className="text-center mb-16">
         <span className="text-primary text-sm font-semibold tracking-widest uppercase">
-          Featured Work
+          My Creations
         </span>
         <h2 className="font-display font-bold text-3xl md:text-4xl mt-2 text-foreground">
           Recent Projects
@@ -57,8 +160,8 @@ export default function Projects() {
         <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto mt-3" />
       </div>
 
-      {/* Grid - Exactly 2 Projects */}
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {/* Grid - 8 Projects in responsive layout */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, idx) => {
           const isExternal = !!project.link
           const ProjectIcon = project.icon
@@ -69,13 +172,13 @@ export default function Projects() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: 'easeOut' }}
               whileHover={{ y: -8, scale: 1.015 }}
             >
               {/* Top Banner with Brand Emblem Logo */}
-              <div className={`h-44 w-full bg-gradient-to-br ${project.gradient} relative flex items-center justify-center overflow-hidden border-b border-border/40`}>
+              <div className={`h-40 w-full bg-gradient-to-br ${project.gradient} relative flex items-center justify-center overflow-hidden border-b border-border/40`}>
                 {/* Background Watermark Icon */}
-                <ProjectIcon className="absolute -right-3 -bottom-3 w-32 h-32 text-foreground/5 dark:text-white/5 transition-all duration-500 group-hover:scale-125 group-hover:rotate-6 group-hover:opacity-10 z-0 pointer-events-none" />
+                <ProjectIcon className="absolute -right-3 -bottom-3 w-28 h-28 text-foreground/5 dark:text-white/5 transition-all duration-500 group-hover:scale-125 group-hover:rotate-6 group-hover:opacity-10 z-0 pointer-events-none" />
 
                 {/* Category Pill Badge */}
                 <div className="absolute top-3.5 left-3.5 z-20">
@@ -103,10 +206,10 @@ export default function Projects() {
               </div>
 
               {/* Body */}
-              <div className="p-6 flex flex-col flex-grow text-left space-y-4">
+              <div className="p-5 flex flex-col flex-grow text-left space-y-4">
                 {/* Title */}
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-display font-bold text-xl text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="font-display font-bold text-lg text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   {isExternal && (
@@ -124,7 +227,7 @@ export default function Projects() {
 
                 {/* Description */}
                 {Array.isArray(project.description) ? (
-                  <ul className="text-muted-foreground text-xs md:text-sm leading-relaxed flex-grow space-y-1.5 list-disc pl-4 text-left">
+                  <ul className="text-muted-foreground text-xs leading-relaxed flex-grow space-y-1.5 list-disc pl-4 text-left">
                     {project.description.map((bullet, bulletIdx) => (
                       <li key={bulletIdx}>{bullet}</li>
                     ))}
@@ -148,28 +251,36 @@ export default function Projects() {
                 </div>
 
                 {/* CTA buttons */}
-                <div className="pt-3 mt-auto flex items-center gap-3">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-grow py-2.5 px-4 rounded-xl text-center text-sm font-semibold border border-primary/40 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground flex items-center justify-center gap-2 transition-all duration-200 focus:outline-none shadow-sm"
-                  >
-                    <span>Live Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="py-2.5 px-4 rounded-xl text-center text-sm font-semibold border border-border hover:border-primary/50 hover:text-primary hover:bg-primary/5 flex items-center justify-center gap-2 transition-all duration-200 focus:outline-none shadow-sm text-foreground"
-                      title="View GitHub Repository"
-                    >
-                      <Github className="w-4 h-4" />
-                      <span className="hidden sm:inline">Code</span>
-                    </a>
+                <div className="pt-2 mt-auto flex items-center gap-2">
+                  {isExternal ? (
+                    <>
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-grow py-2.5 px-4 rounded-xl text-center text-sm font-semibold border border-primary/40 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground flex items-center justify-center gap-2 transition-all duration-200 focus:outline-none shadow-sm"
+                      >
+                        <span>Live Demo</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="py-2.5 px-3.5 rounded-xl text-center text-sm font-semibold border border-border hover:border-primary/50 hover:text-primary hover:bg-primary/5 flex items-center justify-center gap-1.5 transition-all duration-200 focus:outline-none shadow-sm text-foreground"
+                          title="View GitHub Repository"
+                        >
+                          <Github className="w-4 h-4" />
+                          <span className="hidden sm:inline">Code</span>
+                        </a>
+                      )}
+                    </>
+                  ) : (
+                    <div className="w-full py-2.5 rounded-xl text-center text-xs font-medium bg-secondary text-muted-foreground flex items-center justify-center gap-2 border border-border/40">
+                      <Terminal className="w-3.5 h-3.5" />
+                      Local / CLI Project
+                    </div>
                   )}
                 </div>
               </div>
@@ -180,4 +291,3 @@ export default function Projects() {
     </section>
   )
 }
-
