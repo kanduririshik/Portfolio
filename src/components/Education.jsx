@@ -7,7 +7,7 @@ const educationEntries = [
     institution: 'Aurora Deemed University',
     degree: 'B.Tech in Computer Science',
     period: '2024 – Present',
-    description: 'Pursuing foundational studies in computer systems, database design, algorithms, and core software development methodologies. Active participation in technical clubs and hands-on coding challenges.',
+    description: 'Currently in 2nd Year B.Tech, focusing on data structures, algorithms, advanced database management systems (DBMS), and core software architecture. Active participant in hackathons and technical clubs.',
     borderColor: 'border-blue-500',
     iconColor: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
     icon: <GraduationCap className="w-5 h-5" />

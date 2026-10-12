@@ -6,7 +6,7 @@ import { toast } from 'sonner'
 const RESUME_URL = "https://media.base44.com/files/public/69fdbe7186da288c7ad99d88/eca709980_RKNXT.pdf"
 const RESUME_FILENAME = "Rishik_Kanduri_Resume.pdf"
 
-const roles = ['B.Tech Student', 'Python Developer', 'Frontend Enthusiast', 'UI/UX Explorer']
+const roles = ['B.Tech 2nd Year', 'AI & Web Developer', 'Python & C++ Enthusiast', 'Problem Solver']
 
 export default function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
@@ -207,7 +207,7 @@ export default function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
           >
-            B.Tech First Year ✨
+            B.Tech 2nd Year ✨
           </motion.div>
         </motion.div>
       </div>

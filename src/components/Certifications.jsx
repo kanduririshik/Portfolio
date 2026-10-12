@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ZoomIn, Download, X, Calendar, Building, ExternalLink, ShieldCheck, Award } from 'lucide-react'
 
+import certHackWithHyderabad from '../assets/certificates/hackwithhyderabad_3.0.png'
 import certAiAgents from '../assets/certificates/ai_agents_niat.png'
 import certVicodathon from '../assets/certificates/vicodathon_hackathon.png'
 import certAws from '../assets/certificates/aws_cloud_fundamentals.png'
@@ -9,6 +10,18 @@ import certBase44 from '../assets/certificates/31e3962a1_BASE44.png'
 import certMasterclass from '../assets/certificates/7dc1b97a4_Masterclass.png'
 
 const certificates = [
+  {
+    title: 'HackWithHyderabad 3.0 — Certificate of Participation',
+    org: 'Hack With India × Devnovate',
+    date: '3 October 2026',
+    venue: 'Microsoft Office, Hyderabad',
+    image: certHackWithHyderabad,
+    pdfUrl: '/certificates/HackWithHyderabad_3.0_Certificate.pdf',
+    fileName: 'HackWithHyderabad_3.0_Certificate.pdf',
+    tag: 'Hackathon',
+    gradient: 'from-blue-600/20 via-indigo-500/20 to-purple-500/20',
+    description: '8-hour technology hackathon organized by Hack With India × Devnovate at Microsoft Office, Hyderabad.'
+  },
   {
     title: 'AI Agents 201 – Hands-On Workshop',
     org: 'NIAT × NxtWave',
@@ -66,10 +79,15 @@ const certificates = [
 export default function Certifications() {
   const [selectedCert, setSelectedCert] = useState(null)
 
-  const handleDownload = (imageUrl, fileName) => {
+  const handleDownload = (target, customFileName) => {
     const link = document.createElement('a')
-    link.href = imageUrl
-    link.download = fileName
+    if (typeof target === 'object' && target !== null) {
+      link.href = target.pdfUrl || target.image
+      link.download = target.fileName
+    } else {
+      link.href = target
+      link.download = customFileName || 'certificate'
+    }
     link.target = '_blank'
     document.body.appendChild(link)
     link.click()
@@ -178,8 +196,19 @@ export default function Certifications() {
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   )}
+                  {cert.pdfUrl && (
+                    <a
+                      href={cert.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-xl bg-secondary text-muted-foreground hover:text-primary hover:bg-border transition-colors focus:outline-none"
+                      title="View Official Certificate PDF"
+                    >
+                      <ExternalLink className="w-4 h-4 text-primary" />
+                    </a>
+                  )}
                   <button
-                    onClick={() => handleDownload(cert.image, cert.fileName)}
+                    onClick={() => handleDownload(cert)}
                     className="p-2 rounded-xl bg-secondary text-muted-foreground hover:text-foreground hover:bg-border transition-colors focus:outline-none"
                     title="Download certificate"
                   >
@@ -245,7 +274,7 @@ export default function Certifications() {
 
               {/* Modal Actions */}
               <div className="p-4 flex flex-wrap justify-between items-center gap-3 border-t border-border bg-card/70">
-                <div>
+                <div className="flex flex-wrap items-center gap-2">
                   {selectedCert.verifyUrl && (
                     <a
                       href={selectedCert.verifyUrl}
@@ -257,6 +286,17 @@ export default function Certifications() {
                       Verify on Official Site
                     </a>
                   )}
+                  {selectedCert.pdfUrl && (
+                    <a
+                      href={selectedCert.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 text-xs font-semibold border border-primary/40 bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-primary-foreground transition-colors inline-flex items-center gap-1.5 focus:outline-none"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      View Official PDF
+                    </a>
+                  )}
                 </div>
                 <div className="flex gap-2.5">
                   <button
@@ -266,7 +306,7 @@ export default function Certifications() {
                     Close
                   </button>
                   <button
-                    onClick={() => handleDownload(selectedCert.image, selectedCert.fileName)}
+                    onClick={() => handleDownload(selectedCert)}
                     className="px-5 py-2 text-xs font-semibold bg-primary text-primary-foreground hover:opacity-90 rounded-full flex items-center gap-1.5 transition-opacity focus:outline-none shadow-md"
                   >
                     <Download className="w-3.5 h-3.5" />

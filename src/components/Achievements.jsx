@@ -37,26 +37,26 @@ function Counter({ value, duration = 1400 }) {
 const stats = [
   {
     icon: <Rocket className="w-6 h-6" />,
-    value: '6',
-    suffix: '+',
-    label: 'Projects Built',
-    desc: 'Real-world web & Python apps',
+    value: '2',
+    suffix: '',
+    label: 'Flagship Projects',
+    desc: 'StartupLens AI & LivIQ',
     colorClass: 'bg-blue-500/10 text-blue-600 dark:text-blue-400'
   },
   {
     icon: <Layers className="w-6 h-6" />,
-    value: '3',
+    value: '6',
     suffix: '+',
-    label: 'Workshops Attended',
-    desc: 'AI, full-stack & web dev',
+    label: 'Hackathons & Events',
+    desc: 'Microsoft Office, NIAT & more',
     colorClass: 'bg-purple-500/10 text-purple-600 dark:text-purple-400'
   },
   {
     icon: <Brain className="w-6 h-6" />,
-    value: '9',
+    value: '12',
     suffix: '+',
     label: 'Technologies Learned',
-    desc: 'Python, React, JS, SQL & more',
+    desc: 'C++, Python, React, DBMS & more',
     colorClass: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400'
   },
   {
@@ -64,7 +64,7 @@ const stats = [
     value: '100',
     suffix: '%',
     label: 'Passion for Tech',
-    desc: 'Frontend & AI enthusiast',
+    desc: 'AI & Software engineering',
     colorClass: 'bg-rose-500/10 text-rose-600 dark:text-rose-400'
   }
 ]

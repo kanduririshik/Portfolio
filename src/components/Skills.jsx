@@ -2,46 +2,60 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import {
   Brain,
-  Sparkles,
   Terminal,
   Code2,
+  Database,
+  Layers,
   Camera,
   Film,
   TrendingUp
 } from 'lucide-react'
 
-const mainSkills = [
+const skillCategories = [
   {
-    title: 'AI & Machine Learning',
-    description: 'AI/ML concepts & intelligent solutions',
-    icon: Brain,
+    title: 'Programming',
+    description: 'Object-oriented programming, data structures & algorithmic problem solving.',
+    items: ['C++', 'Python', 'JavaScript'],
+    icon: Terminal,
     gradient: 'from-blue-500/20 via-indigo-500/10 to-transparent',
     accentColor: 'text-blue-500 dark:text-blue-400',
     iconBg: 'bg-blue-500/10'
   },
   {
-    title: 'Generative AI',
-    description: 'LLMs, AI tools & creative applications',
-    icon: Sparkles,
-    gradient: 'from-purple-500/20 via-pink-500/10 to-transparent',
-    accentColor: 'text-purple-500 dark:text-purple-400',
-    iconBg: 'bg-purple-500/10'
-  },
-  {
-    title: 'Prompt Engineering',
-    description: 'Advanced prompting & AI workflows',
-    icon: Terminal,
+    title: 'Database Management',
+    description: 'Relational & NoSQL database structures, schema design, and query optimization.',
+    items: ['Advanced DBMS', 'MongoDB', 'SQL'],
+    icon: Database,
     gradient: 'from-emerald-500/20 via-teal-500/10 to-transparent',
     accentColor: 'text-emerald-500 dark:text-emerald-400',
     iconBg: 'bg-emerald-500/10'
   },
   {
+    title: 'Artificial Intelligence',
+    description: 'Foundations of AI, LLM prompting workflows, and applied intelligent software.',
+    items: ['Foundations of AI (FAI)', 'AI Application Development', 'Prompt Engineering'],
+    icon: Brain,
+    gradient: 'from-purple-500/20 via-pink-500/10 to-transparent',
+    accentColor: 'text-purple-500 dark:text-purple-400',
+    iconBg: 'bg-purple-500/10'
+  },
+  {
     title: 'Web Development',
-    description: 'Modern & responsive web applications',
+    description: 'Modern, performant, and responsive web applications with modular components.',
+    items: ['HTML', 'CSS', 'React.js', 'Vite'],
     icon: Code2,
     gradient: 'from-cyan-500/20 via-sky-500/10 to-transparent',
     accentColor: 'text-cyan-500 dark:text-cyan-400',
     iconBg: 'bg-cyan-500/10'
+  },
+  {
+    title: 'Tools and Platforms',
+    description: 'Modern developer workflow, distributed version control, and cloud deployments.',
+    items: ['Git', 'GitHub', 'VS Code', 'Vercel'],
+    icon: Layers,
+    gradient: 'from-amber-500/20 via-orange-500/10 to-transparent',
+    accentColor: 'text-amber-500 dark:text-amber-400',
+    iconBg: 'bg-amber-500/10'
   }
 ]
 
@@ -81,9 +95,9 @@ export default function Skills() {
           <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto mt-3" />
         </div>
 
-        {/* 4 Main Skill Cards Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {mainSkills.map((skill, index) => {
+        {/* Skill Category Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((skill, index) => {
             const Icon = skill.icon
             return (
               <motion.div
@@ -110,9 +124,21 @@ export default function Skills() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-muted-foreground mt-2.5 leading-relaxed">
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
                     {skill.description}
                   </p>
+                </div>
+
+                {/* Skill Pills */}
+                <div className="flex flex-wrap gap-2 mt-5 pt-3.5 border-t border-border/50">
+                  {skill.items.map((item, itemIdx) => (
+                    <span
+                      key={itemIdx}
+                      className="px-2.5 py-1 rounded-lg bg-secondary text-xs font-semibold text-foreground/90 border border-border/60 transition-colors group-hover:border-primary/30"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
             )
@@ -159,3 +185,4 @@ export default function Skills() {
     </section>
   )
 }
+
