@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { ChevronDown, Github, Linkedin, Mail, Phone, ArrowRight, Download, Loader2 } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronDown, Github, Linkedin, Mail, Phone, Download, Loader2, Sparkles } from 'lucide-react'
 import { toast } from 'sonner'
 
 const RESUME_URL = "https://media.base44.com/files/public/69fdbe7186da288c7ad99d88/eca709980_RKNXT.pdf"
 const RESUME_FILENAME = "Rishik_Kanduri_Resume.pdf"
 
-const roles = ['B.Tech 2nd Year', 'AI & Web Developer', 'Python & C++ Enthusiast', 'Problem Solver']
+const roles = [
+  'Full-Stack Developer',
+  'AI Application Architect',
+  'Product-Focused Engineer',
+  'Creative Technologist'
+]
 
 export default function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
-  const [currentText, setCurrentText] = useState('')
-  const [isDeleting, setIsDeleting] = useState(false)
   const [isDownloading, setIsDownloading] = useState(false)
 
   async function handleDownload() {
@@ -34,30 +37,13 @@ export default function Hero() {
     }
   }
 
-  // Typewriter effect
+  // Smooth cycle every 2.8s
   useEffect(() => {
-    let timer
-    const role = roles[currentRoleIndex]
-
-    if (isDeleting) {
-      timer = setTimeout(() => {
-        setCurrentText((prev) => prev.slice(0, -1))
-      }, 35)
-    } else {
-      timer = setTimeout(() => {
-        setCurrentText(role.slice(0, currentText.length + 1))
-      }, 75)
-    }
-
-    if (!isDeleting && currentText === role) {
-      timer = setTimeout(() => setIsDeleting(true), 1600)
-    } else if (isDeleting && currentText === '') {
-      setIsDeleting(false)
+    const timer = setInterval(() => {
       setCurrentRoleIndex((prev) => (prev + 1) % roles.length)
-    }
-
-    return () => clearTimeout(timer)
-  }, [currentText, isDeleting, currentRoleIndex])
+    }, 2800)
+    return () => clearInterval(timer)
+  }, [])
 
   const scrollSection = (id) => {
     const el = document.getElementById(id)
@@ -69,6 +55,8 @@ export default function Hero() {
       })
     }
   }
+
+  const currentRole = roles[currentRoleIndex]
 
   return (
     <section
@@ -104,17 +92,33 @@ export default function Hero() {
             </h1>
           </div>
 
-          {/* Typing Animation */}
-          <div className="flex items-center h-8">
-            <span className="text-base sm:text-lg font-medium text-muted-foreground">
-              {currentText}
+          {/* New Modern Flip & Blur Role Switcher Animation */}
+          <div className="flex items-center gap-2.5 h-10 overflow-hidden">
+            <span className="text-xs uppercase tracking-widest font-bold text-primary/80 shrink-0 hidden sm:inline-flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
+              Role:
             </span>
-            <span className="w-[2px] h-5 bg-primary ml-1 animate-pulse" style={{ animationDuration: '0.5s' }} />
+            <div className="relative h-10 flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentRole}
+                  initial={{ y: 22, opacity: 0, filter: 'blur(6px)' }}
+                  animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                  exit={{ y: -22, opacity: 0, filter: 'blur(6px)' }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  className="font-display font-bold text-lg sm:text-xl md:text-2xl text-foreground tracking-tight flex items-center gap-2 whitespace-nowrap"
+                >
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500 dark:from-blue-400 dark:via-indigo-300 dark:to-cyan-400">
+                    {currentRole}
+                  </span>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Description */}
           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-md">
-            I am a passionate developer focused on building functional, responsive web interfaces and solving complex logical challenges. Currently exploring full-stack engineering and AI integration.
+            Architecting modern web applications and AI-driven products with a focus on high performance, intuitive interface design, and scalable full-stack systems.
           </p>
 
           {/* CTA Buttons */}
