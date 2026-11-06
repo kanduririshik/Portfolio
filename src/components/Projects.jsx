@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import {
-  Sparkles,
   HeartPulse,
   Building2,
   Compass,
@@ -16,23 +15,6 @@ import {
 } from 'lucide-react'
 
 const projects = [
-  {
-    title: 'StartupLens AI',
-    tag: 'AI Intelligence',
-    icon: Sparkles,
-    tech: ['Next.js', 'React', 'FastAPI', 'Python', 'Google Gemini', 'Tailwind CSS'],
-    link: 'https://frontend-sigma-nine-1sehyiki3f.vercel.app/',
-    githubUrl: 'https://github.com/lingampallisaihashwanth/startuplens-ai',
-    gradient: 'from-indigo-500/25 via-purple-500/15 to-indigo-900/20',
-    iconColor: 'text-indigo-500 dark:text-indigo-400',
-    badgeBg: 'bg-indigo-500/10 border-indigo-500/30',
-    accentColor: 'bg-indigo-500',
-    description: [
-      'AI-powered startup research and market opportunity intelligence platform.',
-      'Analyzes startup ideas and market signals using Google Gemini and live web intelligence.',
-      'Generates evidence-backed problem-solution validation, competitor insights, and strategic reports.'
-    ]
-  },
   {
     title: 'LivIQ Offline App',
     tag: 'Offline Health',
@@ -193,7 +175,7 @@ export default function Projects() {
         <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto mt-3" />
       </div>
 
-      {/* Grid - 10 Projects in responsive layout */}
+      {/* Grid - 9 Projects in responsive layout */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, idx) => {
           const isExternal = !!project.link
