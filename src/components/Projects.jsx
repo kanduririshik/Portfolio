@@ -132,7 +132,8 @@ const projects = [
     tag: 'Python CLI',
     icon: Film,
     tech: ['Python', 'CLI', 'Algorithms'],
-    link: null,
+    link: 'https://github.com/kanduririshik/CineVerse',
+    githubUrl: 'https://github.com/kanduririshik/CineVerse',
     gradient: 'from-amber-500/25 via-orange-500/15 to-amber-900/20',
     iconColor: 'text-orange-500 dark:text-orange-400',
     badgeBg: 'bg-orange-500/10 border-orange-500/30',
@@ -178,7 +179,7 @@ export default function Projects() {
       {/* Grid - 9 Projects in responsive layout */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, idx) => {
-          const isExternal = !!project.link
+          const hasLiveOrGithub = !!(project.link || project.githubUrl)
           const ProjectIcon = project.icon
           return (
             <motion.div
@@ -227,13 +228,13 @@ export default function Projects() {
                   <h3 className="font-display font-bold text-lg text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  {isExternal && (
+                  {hasLiveOrGithub && (
                     <a
-                      href={project.link}
+                      href={project.link || project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary transition-colors"
-                      aria-label={`Open ${project.title} live link`}
+                      aria-label={`Open ${project.title} link`}
                     >
                       <ExternalLink className="w-4 h-4 mt-1 flex-shrink-0" />
                     </a>
@@ -267,7 +268,20 @@ export default function Projects() {
 
                 {/* CTA buttons */}
                 <div className="pt-2 mt-auto flex items-center gap-2">
-                  {isExternal ? (
+                  {/* Case 1: GitHub-only project (like Cine Verse) */}
+                  {project.githubUrl && project.link === project.githubUrl ? (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2.5 px-4 rounded-xl text-center text-sm font-semibold border border-primary/40 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground flex items-center justify-center gap-2 transition-all duration-200 focus:outline-none shadow-sm"
+                    >
+                      <Github className="w-4 h-4" />
+                      <span>View GitHub Repository</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  ) : project.link ? (
+                    /* Case 2: Web project with live link and optional GitHub */
                     <>
                       <a
                         href={project.link}
@@ -292,6 +306,7 @@ export default function Projects() {
                       )}
                     </>
                   ) : (
+                    /* Case 3: Local / CLI Project without repo */
                     <div className="w-full py-2.5 rounded-xl text-center text-xs font-medium bg-secondary text-muted-foreground flex items-center justify-center gap-2 border border-border/40">
                       <Terminal className="w-3.5 h-3.5" />
                       Local / CLI Project
