@@ -71,10 +71,10 @@ export default function About() {
           viewport={{ once: true, margin: '-80px' }}
         >
           <motion.p className="text-base text-muted-foreground leading-relaxed" variants={itemVariants}>
-            Hello! I am <span className="text-primary font-semibold">Kanduri Rishik</span>, a passionate second-year B.Tech Computer Science student pursuing my degree through the <span className="text-primary font-semibold">NxtWave Innovations of Advanced Technologies</span> × <span className="text-primary font-semibold">Aurora Deemed to be University</span> program. I specialize in building real-world software, <span className="text-primary font-semibold">Artificial Intelligence</span>, and responsive digital solutions.
+            Hello! I am <span className="text-primary font-semibold">Kanduri Rishik</span>, a second-year B.Tech Computer Science student pursuing my degree through the <span className="text-primary font-semibold">NxtWave Innovations of Advanced Technologies</span> × <span className="text-primary font-semibold">Aurora Deemed to be University</span> program.
           </motion.p>
           <motion.p className="text-base text-muted-foreground leading-relaxed" variants={itemVariants}>
-            My technical focus encompasses <span className="text-primary font-semibold">C++</span>, <span className="text-primary font-semibold">Python</span>, and <span className="text-primary font-semibold">JavaScript</span>, alongside <span className="text-primary font-semibold">Advanced DBMS</span>, <span className="text-primary font-semibold">Foundations of AI (FAI)</span>, <span className="text-primary font-semibold">Prompt Engineering</span>, and modern <span className="text-primary font-semibold">Web Development</span> with React and Vite. I enjoy transforming practical challenges into high-performance applications.
+            I am driven by turning ambitious ideas into production-ready digital products. My work centers on building scalable web architectures, crafting intuitive user experiences, and integrating intelligent systems that solve real-world problems.
           </motion.p>
 
           <motion.div className="border-t border-border pt-6 mt-2" variants={itemVariants}>
