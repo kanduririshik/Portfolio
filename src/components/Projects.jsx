@@ -8,7 +8,6 @@ import {
   Activity,
   Boxes,
   Film,
-  Layers,
   Terminal,
   ExternalLink,
   Github
@@ -143,22 +142,6 @@ const projects = [
       'Queries cinema genre databases and tracks viewed movies with personalized rating metrics.',
       'Structured with clean object-oriented architecture and efficient search algorithms.'
     ]
-  },
-  {
-    title: 'Tower of Hanoi',
-    tag: 'Algorithm Puzzle',
-    icon: Layers,
-    tech: ['Python', 'Data Structures', 'Recursion'],
-    link: null,
-    gradient: 'from-green-500/25 via-emerald-500/15 to-green-900/20',
-    iconColor: 'text-emerald-500 dark:text-emerald-400',
-    badgeBg: 'bg-emerald-500/10 border-emerald-500/30',
-    accentColor: 'bg-green-500',
-    description: [
-      'Interactive puzzle solver executing recursive mathematical algorithms step-by-step.',
-      'Demonstrates optimal disc transfer sequence across peg columns with visual representations.',
-      'Includes move counter, complexity analysis, and terminal visualization.'
-    ]
   }
 ]
 
@@ -176,7 +159,7 @@ export default function Projects() {
         <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto mt-3" />
       </div>
 
-      {/* Grid - 9 Projects in responsive layout */}
+      {/* Grid - 8 Projects in responsive layout */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, idx) => {
           const hasLiveOrGithub = !!(project.link || project.githubUrl)
