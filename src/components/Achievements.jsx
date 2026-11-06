@@ -53,10 +53,10 @@ const stats = [
   },
   {
     icon: <Brain className="w-6 h-6" />,
-    value: '12',
+    value: '20',
     suffix: '+',
-    label: 'Technologies Learned',
-    desc: 'C++, Python, React, DBMS & more',
+    label: 'Technologies & Skills',
+    desc: 'AI, React, Python, C++, DBMS & more',
     colorClass: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400'
   },
   {
